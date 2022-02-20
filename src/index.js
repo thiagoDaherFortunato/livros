@@ -7,5 +7,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 require('./controller/authenticatorController')(app);
-
+require('./controller/livroController')(app);
 app.listen(3000);
