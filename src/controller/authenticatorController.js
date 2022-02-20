@@ -29,8 +29,6 @@ router.post('/register', async (req,res)=>{
             error: 'Falaha ao registrar usuário'
         });
     }
-    
-
 });
 
 router.post('/login', async (req,res)=>{
