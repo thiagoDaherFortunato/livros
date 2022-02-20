@@ -88,21 +88,16 @@ router.put('/AlugarLivro/:name', async (req,res)=>{
 
 
 
-router.put('/AtualizarLivro/:name', async (req,res)=>{
-    const livro =  await Livro.find({'name':req.params.name});
+router.put('/AtualizarLivro/:id', async (req,res)=>{
+    const livro =  await Livro.findOne({'id':req.params.id});
    
-    console.log(livro.alugado)
     try{
-        if(livro.alugado){
-            return res.status(400).send({
-                error: 'Livro alugado'
-            });
-        }
+     
         var livroUpdate= {
             alugado:true
         }
-       livro.alugado = false;
-       await Livro.findOneAndUpdate({'name':req.params.name},livro);
+     
+       await Livro.findOneAndUpdate({'id':req.params.id},req.body);
         console.log(livro)
         return res.status(200).send({
             livro
